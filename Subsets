@@ -1,0 +1,22 @@
+class Solution {
+
+    public List<List<Integer>> subsets(int[] nums) {
+        int len = nums.length;
+        
+        List<List<Integer>> sol = new ArrayList<List<Integer>>();
+        
+        int lim = 1<<len;
+        
+        
+        for(int i =0; i<lim;i++) {
+           List<Integer> a = new ArrayList<>();
+            
+            for(int j =0;j<len;j++)
+                if((i & (1<<j))>0)
+                    a.add(nums[j]);
+            
+            sol.add(a);
+        }
+        return sol;
+    }
+}
